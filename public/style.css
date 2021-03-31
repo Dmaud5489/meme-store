@@ -1,0 +1,33 @@
+body {
+	margin: 0px;
+	font-size: 1.1em;
+}
+
+h1 {
+	margin: 30px;
+	color: Maroon;
+	text-align: center;
+}
+
+#enter_meme_header {
+	margin-top: 100px;
+	text-align: center;
+	font-size: 30pt;
+}
+
+#submit_form {
+	margin-left: 750px;
+}
+
+#return_meme {
+	margin-top: 40px;
+	margin-left: 880px;
+}
+
+#return_meme_image {
+	display: block;
+	margin-top: 60px;
+	width: 50%;
+	margin-left: 25%;
+	height: 600px;
+}

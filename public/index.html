@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Yelp for Anything!</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body id = 'body'>
+		
+		<script type="text/javascript"> 
+			function returnMeme() {
+				var xhr = new XMLHttpRequest();
+
+				xhr.open("GET", "http://localhost:3000/returnMemeFromDatabase", true);
+				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+				xhr.onreadystatechange = function() {
+					if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+						var ele = document.getElementById("return_meme_image");
+						ele.src = "/returnMemeFromDatabase";
+					}
+				};
+
+				xhr.send();
+			}
+		</script>
+
+		<h1 id = "enter_meme_header">ENTER MEME:</h1>
+		<form action = "/profile" method = "post" enctype = "multipart/form-data" id = "submit_form">
+			<input type = "file" name = "avatar">
+			<input type = "submit" value = "Upload the meme!"> 
+		</form>
+		<button id = "return_meme" onClick = 'returnMeme()'>Get A Random Meme</button>
+		<img id = "return_meme_image" src = "/returnMemeFromDatabase" alt = "Picture">
+	</body>
+</html>
