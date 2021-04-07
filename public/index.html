@@ -12,13 +12,13 @@
 			function returnMeme() {
 				var xhr = new XMLHttpRequest();
 
-				xhr.open("GET", "http://localhost:3000/returnMemeFromDatabase", true);
+				xhr.open("GET", "http://localhost:3000/getMeme", true);
 				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
 				xhr.onreadystatechange = function() {
 					if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
 						var ele = document.getElementById("return_meme_image");
-						ele.src = "/returnMemeFromDatabase";
+						ele.src = "/getMeme";
 					}
 				};
 
@@ -27,11 +27,11 @@
 		</script>
 
 		<h1 id = "enter_meme_header">ENTER MEME:</h1>
-		<form action = "/profile" method = "post" enctype = "multipart/form-data" id = "submit_form">
+		<form action = "/putMeme" method = "post" enctype = "multipart/form-data" id = "submit_form">
 			<input type = "file" name = "avatar">
 			<input type = "submit" value = "Upload the meme!"> 
 		</form>
 		<button id = "return_meme" onClick = 'returnMeme()'>Get A Random Meme</button>
-		<img id = "return_meme_image" src = "/returnMemeFromDatabase" alt = "Picture">
+		<img id = "return_meme_image" src = "/getMeme" alt = "Picture">
 	</body>
 </html>

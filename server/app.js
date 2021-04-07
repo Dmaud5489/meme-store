@@ -42,20 +42,14 @@ app.get('/', function(req, res) {
     });
 });
 
-app.get('/admin', (req, res)  => {
-    res.status(200).sendFile('admin.html', {
-        root: path.resolve('../public')
-    });
-})
-
-app.post('/profile', upload.single('avatar'), function (req, res, next) {
+app.post('/putMeme', upload.single('avatar'), function (req, res, next) {
     var sql = "SELECT COUNT(*) AS total FROM memes";
     var query = con.query(sql, function(err, result) {
         insertMeme(result[0].total+1, req.file.filename);
     })
 })
 
-app.get('/returnMemeFromDatabase', (request, response) => {
+app.get('/getMeme', (request, response) => {
     var index;
     var sql = "SELECT COUNT(*) AS total FROM memes";
     var query = con.query(sql, function(err, result) {
